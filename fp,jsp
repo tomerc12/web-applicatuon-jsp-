@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JSP Image Upload Application</title>
+</head>
+<body>
+  <h1>Welcome to my JSP Image Upload Application</h1>
+  <form action="result.jsp" method="post" enctype="multipart/form-data">
+    Choose an image file: <input type="file" name="file"><br><br>
+    <input type="submit" value="Upload">
+  </form>
+</body>
+</html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Result</title>
+</head>
+<body>
+  <h1>Result</h1>
+  <%
+    String fileName = request.getParameter("file");
+    String imagePath = "images/" + fileName;
+  %>
+  <img src="<%= imagePath %>" alt="Uploaded Image">
+</body>
+</html>
